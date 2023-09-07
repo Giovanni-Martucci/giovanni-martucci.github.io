@@ -162,6 +162,41 @@
     })
   }
 
+  document.getElementById("permit").addEventListener("click", function () {
+    var pwd = prompt("Inserisci la password:");
+
+    if (pwd !== null && pwd !== "") {
+        var data = JSON.stringify({
+          "pswd": pwd
+        });
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/chk");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var response = xhr.responseText;
+                    var regex = /href="([^"]+)"/;
+                    var result = response.match(regex);
+                    if (result) {
+                      var linkUrl = result[1];
+                    }
+                    window.open(linkUrl, "_blank");
+                } else {
+                    alert("Password errata. Accesso negato. " + xhr.status);
+                }
+            }
+        };
+
+        xhr.send(data);
+    } else {
+        alert("Password non inserita.");
+    }
+  });
+
+
   /**
    * Porfolio isotope and filter
    */
@@ -224,7 +259,7 @@
       clickable: true
     }
   });
-
+  
   /**
    * Testimonials slider
    */
@@ -261,3 +296,5 @@
   new PureCounter();
 
 })()
+
+
