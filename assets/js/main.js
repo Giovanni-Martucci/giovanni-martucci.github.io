@@ -185,7 +185,7 @@
                     }
                     window.open(linkUrl, "_blank");
                 } else {
-                    alert("Password errata. Accesso negato. " + xhr.status);
+                    alert("Password errata. Accesso negato.");
                 }
             }
         };
