@@ -196,7 +196,19 @@
     }
   });
 
+  document.addEventListener("DOMContentLoaded", function() {
+    var xhr = new XMLHttpRequest();
 
+    xhr.open("GET", "https://app-to-return-cv.onrender.com/update");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var responseData = JSON.parse(xhr.responseText);
+            console.log(responseData);
+        } 
+    };
+    xhr.send();
+  });
+  
   /**
    * Porfolio isotope and filter
    */
