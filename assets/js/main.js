@@ -290,37 +290,6 @@
     }
   });
 
-  document.getElementById("pm").addEventListener("click", function () {
-    var pwd = prompt("Inserisci la password:");
-
-    if (pwd !== null && pwd !== "") {
-        var data = JSON.stringify({
-          "pswd": pwd
-        });
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://app-to-return-cv.onrender.com/mp");
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var result = xhr.responseText;                    
-                    if (result) {
-                      var newWindow = window.open('', '_blank');
-                      newWindow.document.open();
-                      newWindow.document.write(result);  
-                      newWindow.document.close();
-                    }
-                } 
-            }
-        };
-
-        xhr.send(data);
-    } else {
-        alert("Password non inserita.");
-    }
-  });
 
   /**
    * Animation on scroll
