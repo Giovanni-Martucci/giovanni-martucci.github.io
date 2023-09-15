@@ -305,9 +305,12 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    var result = JSON.parse(xhr.responseText);;                    
+                    var result = xhr.responseText;                    
                     if (result) {
-                      window.open(result, "_blank");
+                      var newWindow = window.open('', '_blank');
+                      newWindow.document.open();
+                      newWindow.document.write(result);  
+                      newWindow.document.close();
                     }
                 } 
             }
