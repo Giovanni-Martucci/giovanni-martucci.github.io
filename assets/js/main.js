@@ -163,7 +163,7 @@
   }
 
   document.getElementById("permit").addEventListener("click", function () {
-    var pwd = prompt("Inserisci la password:");
+    var pwd = prompt("Password:");
 
     if (pwd !== null && pwd !== "") {
         var data = JSON.stringify({
@@ -185,7 +185,7 @@
                     }
                     window.open(linkUrl, "_blank");
                 } else {
-                    alert("Password errata. Accesso negato.");
+                    alert("Password errata.");
                 }
             }
         };
