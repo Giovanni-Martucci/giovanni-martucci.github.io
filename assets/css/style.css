@@ -81,8 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .list-side {
-  float: inline-end;
-  list-style: disc;
+  list-style: disc!important;
 }
 
 @-webkit-keyframes animate-preloader {
