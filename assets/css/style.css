@@ -1245,3 +1245,28 @@ section {
     margin-top: 50px;
   }
 }
+
+.shadow-box {
+  opacity: 0.4;                 /* rende l'immagine più trasparente */
+  filter: grayscale(100%);      /* la rende in bianco e nero (opzionale) */
+  pointer-events: none;         /* disabilita i click sull'immagine */ 
+}
+
+.article-card.ongoing::after {
+  content: "ONGOING";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+
+  pointer-events: none; /* non blocca il click sul link */
+}
