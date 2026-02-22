@@ -1270,3 +1270,104 @@ section {
 
   pointer-events: none; /* non blocca il click sul link */
 }
+
+/*--------------------------------------------------------------
+# About — new elements
+--------------------------------------------------------------*/
+.about-img {
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(5,99,187,0.18);
+}
+
+.about-bio {
+  color: #a3bdd6;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.about-passions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.passion-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(5,99,187,0.12);
+  border: 1px solid rgba(5,99,187,0.4);
+  color: #7ab8f5;
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
+}
+
+.passion-pill i {
+  font-size: 15px;
+  color: #0563bb;
+}
+
+.passion-pill:hover {
+  background: rgba(5,99,187,0.25);
+  border-color: #0563bb;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/*--------------------------------------------------------------
+# Facts — updated span color fix
+--------------------------------------------------------------*/
+.facts .count-box span {
+  color: #4ba8ff;
+}
+
+/*--------------------------------------------------------------
+# Skills — tabs design
+--------------------------------------------------------------*/
+.skills-tabs {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.skills-tabs .nav-link {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #7ab8f5;
+  border-radius: 50px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skills-tabs .nav-link i {
+  font-size: 15px;
+}
+
+.skills-tabs .nav-link:hover {
+  background: rgba(5,99,187,0.2);
+  border-color: #0563bb;
+  color: #fff;
+}
+
+.skills-tabs .nav-link.active {
+  background: #0563bb;
+  border-color: #0563bb;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(5,99,187,0.35);
+}
+
+.skills .tab-content {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 10px;
+}
