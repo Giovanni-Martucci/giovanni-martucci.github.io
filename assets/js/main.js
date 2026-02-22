@@ -146,20 +146,39 @@
   }
 
   /**
-   * Skills animation
+   * Skills animation — fires once on scroll + on tab switch
    */
+  const animateProgressBars = () => {
+    let progress = select('.tab-pane.active .progress .progress-bar', true);
+    progress.forEach((el) => {
+      el.style.width = el.getAttribute('aria-valuenow') + '%';
+    });
+  };
+
   let skilsContent = select('.skills-content');
   if (skilsContent) {
     new Waypoint({
       element: skilsContent,
       offset: '80%',
       handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
+        animateProgressBars();
       }
-    })
+    });
+    // Also trigger on tab switch
+    let skillTabs = select('#skillsTab .nav-link', true);
+    skillTabs.forEach((tab) => {
+      tab.addEventListener('shown.bs.tab', function() {
+        // Reset and animate bars in the newly shown pane
+        let newPane = select(tab.getAttribute('data-bs-target'));
+        if (newPane) {
+          let bars = newPane.querySelectorAll('.progress .progress-bar');
+          bars.forEach(b => { b.style.width = '0'; });
+          setTimeout(() => {
+            bars.forEach(b => { b.style.width = b.getAttribute('aria-valuenow') + '%'; });
+          }, 50);
+        }
+      });
+    });
   }
 
   document.getElementById("permit").addEventListener("click", function () {
